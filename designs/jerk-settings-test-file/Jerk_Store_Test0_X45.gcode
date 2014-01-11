@@ -181,7 +181,7 @@
 ;
 ; *** G-code Prefix ***
 ;
-M205 X30 ; Set the Jerk speed
+M205 X45 ; Set the Jerk speed
 M301 P24.72 I0.88 D231.1 ; desired PID loop
 M82 ; Set E to absolute
 M106 S255 ; Fan full power
