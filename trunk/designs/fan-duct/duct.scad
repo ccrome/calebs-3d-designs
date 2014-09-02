@@ -1,21 +1,40 @@
-printheadRadius=14;
-fanSize=40;
-ductRadius=9;
-outletGap=4.55;
-attachHeight=60;
-attachBraceWidth=5;
-attachCutHeight=36.4;// there is some flexibility in the height of the cut.  This is the peak height - the sides then slope down at 45 degrees.  The height can never be less than 2*ductRadius+printheadRadius
+/*
+Copyright (c) 2014, Steven Presser
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+//General settings
+printheadRadius=14; //The size of the center of the torus - where the printhead goes
+fanSize=40; // We assume a square fan.  The length of one side of the square
+ductRadius=9; //How big is the torus surrounding the printhead?  This is the hoizontal length and 1/2 the vertical height
+outletGap=4.55; //How wide the gap on the bottom of the torus is to release air
+wallThickness=0.7; //How thick are all of the walls in this model?
+
+// The attachment is the part you use to mount the duct to the printer.  The fan sits on top
+attachHeight=60; //How tall is the portion where the fan mounts?
 attachYOffset=0; //allows you to move the attachment along the y axis to center the duct
 attachXOffset=4.5; //allows you to move the SCReW HOLE along the x axis to center the duct
-wallThickness=0.7;
 
-mountScrewWidth=3;
-mountThickness=3;
+// These control things about the wall which actually gets screwed into the printer
+mountScrewWidth=3; //How wide is the hole?
+mountThickness=3; //How thick is that wall?  For thermal protection (the walls melt if they're too thin) this should be enough that when sliced there is internal support structure.
 
+//Fan mount details
 fanMountWidth=7.4; //how much extra to add at the edges for mounts, hole automagically placed halfway
 fanMountHole=1.7; //radius of the screw hole
-fanMountDepth=10; //depthof screw hole
+fanMountDepth=10; //depth of screw hole
 
+// Magic variable to keep us 'simple'.  Should make no appreciable changes in the model.  Reduce if so desired.
 fudge=0.01;
 
 if (fanSize>attachHeight) {
